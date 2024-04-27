@@ -151,7 +151,7 @@ public class MyCalciteConnection {
 
         RuleSet rules = RuleSets.ofList(
             PRules.P_TABLESCAN_RULE,
-            PRules.PProjectFilterRule.INSTANCE
+                PRules.PProjectFilterRule.INSTANCE
         );
 
         HepProgramBuilder hepProgramBuilder = new HepProgramBuilder();
@@ -201,7 +201,6 @@ public class MyCalciteConnection {
 
         planner.setRoot(node);
         planner.changeTraits(node, requiredTraitSet);
-
         RelNode optimizedPlan = planner.findBestExp();
         return optimizedPlan;
         

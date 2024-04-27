@@ -23,8 +23,8 @@ public class PrimaryTestCases {
         try{
 
             RelNode phyRelNode = calciteConnection.logicalToPhysical(
-                relNode,
-                relNode.getTraitSet().plus(PConvention.INSTANCE)
+                    relNode,
+                    relNode.getTraitSet().plus(PConvention.INSTANCE)
             );
 
             // You should check here that the physical relNode is a PProjectFilter instance
@@ -38,13 +38,13 @@ public class PrimaryTestCases {
         }
     }
 
-    
-    @Test 
+
+    @Test
     public void testSFW() {
         try{
             MyCalciteConnection calciteConnection = new MyCalciteConnection();
-            String query = "select first_name from actor where actor_id > 100 and actor_id < 150";
-            
+            String query = "select * from actor where actor_id > 100 and actor_id < 150";
+
             RelNode relNode = createRelNode(query, calciteConnection);
             System.out.println("[+] Logical RelNode:\n" + relNode.explain());
             List<Object []> result = eval(relNode, calciteConnection);
@@ -57,55 +57,55 @@ public class PrimaryTestCases {
             result.sort((a, b) -> ((String)a[0]).compareTo((String)b[0]));
 
             String [] expected = new String [] {
-                "Adam",
-                "Albert",
-                "Albert",
-                "Angela",
-                "Cameron",
-                "Cate",
-                "Cate",
-                "Cuba",
-                "Dan",
-                "Daryl",
-                "Ed",
-                "Emily",
-                "Ewan",
-                "Fay",
-                "Frances",
-                "Gene",
-                "Gina",
-                "Greta",
-                "Groucho",
-                "Harrison",
-                "Jada",
-                "Jane",
-                "Julianne",
-                "Kevin",
-                "Kim",
-                "Liza",
-                "Lucille",
-                "Matthew",
-                "Morgan",
-                "Morgan",
-                "Morgan",
-                "Penelope",
-                "Penelope",
-                "Renee",
-                "Richard",
-                "Rita",
-                "River",
-                "Russell",
-                "Russell",
-                "Salma",
-                "Scarlett",
-                "Sidney",
-                "Susan",
-                "Susan",
-                "Sylvester",
-                "Walter",
-                "Warren",
-                "Warren",
-                "Whoopi"
+                    "Adam",
+                    "Albert",
+                    "Albert",
+                    "Angela",
+                    "Cameron",
+                    "Cate",
+                    "Cate",
+                    "Cuba",
+                    "Dan",
+                    "Daryl",
+                    "Ed",
+                    "Emily",
+                    "Ewan",
+                    "Fay",
+                    "Frances",
+                    "Gene",
+                    "Gina",
+                    "Greta",
+                    "Groucho",
+                    "Harrison",
+                    "Jada",
+                    "Jane",
+                    "Julianne",
+                    "Kevin",
+                    "Kim",
+                    "Liza",
+                    "Lucille",
+                    "Matthew",
+                    "Morgan",
+                    "Morgan",
+                    "Morgan",
+                    "Penelope",
+                    "Penelope",
+                    "Renee",
+                    "Richard",
+                    "Rita",
+                    "River",
+                    "Russell",
+                    "Russell",
+                    "Salma",
+                    "Scarlett",
+                    "Sidney",
+                    "Susan",
+                    "Susan",
+                    "Sylvester",
+                    "Walter",
+                    "Warren",
+                    "Warren",
+                    "Whoopi"
             };
 
             for(int i = 0; i < result.size(); i++){

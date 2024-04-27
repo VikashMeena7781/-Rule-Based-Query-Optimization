@@ -12,6 +12,7 @@ public class QueryExecutor {
     
     public List<Object []> execute(RelNode relNode) {
 
+
         PRel pRel = (PRel) relNode;
         boolean isOpen = pRel.open();
         if(!isOpen) {
